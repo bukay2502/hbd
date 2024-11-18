@@ -25,14 +25,15 @@ const animationTimeline = () => {
     // split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
+    const chars = hbd.innerHTML.split("");
+    // Wrap each word in a span tag
+    const newHTML = chars.map(char => `<span>${char}</span>${char === ' ' ? ' ' : ''}`).join("");
 
     textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
         .split("")
         .join("</span><span>")}</span`;
 
-    hbd.innerHTML = `<span>${hbd.innerHTML
-        .split("")
-        .join("</span><span>")}</span`;
+    hbd.innerHTML = newHTML;
 
     const ideaTextTrans = {
         opacity: 0,
@@ -127,7 +128,7 @@ const animationTimeline = () => {
     })
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=3")
     .from(".idea-4", 0.7, ideaTextTrans)
-    .to(".idea-4", 0.7, ideaTextTransLeave, "+=1.5")
+    .to(".idea-4", 0.7, ideaTextTransLeave, "+=2")
     .from(
         ".idea-5",
         0.7, {
@@ -155,27 +156,6 @@ const animationTimeline = () => {
             opacity: 0,
         },
         "+=2"
-    )
-    .staggerFrom(
-        ".idea-6 span",
-        0.8, {
-            scale: 3,
-            opacity: 0,
-            rotation: 15,
-            ease: Expo.easeOut,
-        },
-        0.2
-    )
-    .staggerTo(
-        ".idea-6 span",
-        0.8, {
-            scale: 3,
-            opacity: 0,
-            rotation: -15,
-            ease: Expo.easeOut,
-        },
-        0.2,
-        "+=1.5"
     )
     .staggerFromTo(
         ".baloons img",
