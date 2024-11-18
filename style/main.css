@@ -5,7 +5,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background-color: #FFF8DC;
+  background-color: #F2E6EB;
 }
 
 .song {
@@ -91,11 +91,6 @@ body {
   display: inline-block;
 }
 
-.idea-6 span{
-  font-size: 15rem;
-}
-
-
 .six {
   position: relative;
   top: 10vh;
@@ -110,10 +105,11 @@ body {
 }
 
 .six .hat {
-  left: 41.5%;
+  left: 80%;
   position: absolute;
+  transform: translateX(185px);
   /* transform: scale(0.1); */
-  top: -35%;
+  top: -42%;
   width: 80px;
 }
 
